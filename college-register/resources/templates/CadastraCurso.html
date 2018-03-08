@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Cadastro de Cursos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>Cadastro de Cursos</strong>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" th:object="${post}" th:action="@{/save}" method="POST" style="margin: 10px">
+                <div class="form-group">
+                    <fieldset>
+                                         
+                        <div class="form-group row">                                                          
+                            <div class="col-md-4" th:classappend="${#fields.hasErrors('autor')}? 'has-error'">
+                                <label>Código do Curso</label>
+                                <input type="text" class="form-control input-sm" th:field="*{autor}" autofocus="autofocus" placeholder="Informe o autor" maxlength="50"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-4" th:classappend="${#fields.hasErrors('titulo')}? 'has-error'">
+                                <label>Nome do Curso</label> 
+                                <input type="text" class="form-control input-sm" th:field="*{titulo}" maxlength="150" placeholder="Informe o título"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-4" th:classappend="${#fields.hasErrors('titulo')}? 'has-error'">
+                                <label>Instituição de Ensino</label> 
+                                <input type="text" class="form-control input-sm" th:field="*{titulo}" maxlength="150" placeholder="Informe o título"/>
+                            </div>
+                        </div>                                                
+                    </fieldset>
+                </div>
+                <div class="form-group row">
+                    <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                    <a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
